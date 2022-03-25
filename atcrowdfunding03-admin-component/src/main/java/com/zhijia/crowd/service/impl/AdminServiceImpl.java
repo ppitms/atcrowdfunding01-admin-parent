@@ -13,6 +13,7 @@ import com.zhijia.crowd.service.api.AdminService;
 import com.zhijia.crowd.util.CrowdUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -30,9 +31,13 @@ public class AdminServiceImpl implements AdminService {
     @Autowired
     private AdminMapper adminMapper;
 
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
     public void saveAdmin(Admin admin) {
         //加密
-        String userPswd = CrowdUtil.md5(admin.getUserPswd());
+//        String userPswd = CrowdUtil.md5(admin.getUserPswd());
+        String userPswd=passwordEncoder.encode(admin.getUserPswd());
         admin.setUserPswd(userPswd);
         //生成时间
         Date date = new Date();
@@ -130,4 +135,12 @@ public class AdminServiceImpl implements AdminService {
             adminMapper.insertNewRelationship(adminId,roleIdList);
         }
     }
+
+    @Override
+    public Admin getAdminByLoginAcct(String username) {
+        AdminExample adminExample = new AdminExample();
+        adminExample.createCriteria().andLoginAcctEqualTo(username);
+        return adminMapper.selectByExample(adminExample).get(0);
+    }
+
 }

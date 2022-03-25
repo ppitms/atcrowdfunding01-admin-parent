@@ -5,6 +5,7 @@ import com.zhijia.crowd.entity.ResultEntity;
 import com.zhijia.crowd.entity.Role;
 import com.zhijia.crowd.service.api.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,6 +44,7 @@ public class RoleHandler {
         return ResultEntity.successWithoutData();
     }
 
+//    @PreAuthorize("hasRole('部长')")
     @ResponseBody
     @RequestMapping("/role/get/page/info.json")
     public ResultEntity<PageInfo<Role>> getPageInfo(@RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,

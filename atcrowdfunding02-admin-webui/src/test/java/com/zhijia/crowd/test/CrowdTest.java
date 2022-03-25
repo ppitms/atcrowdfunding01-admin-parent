@@ -3,18 +3,21 @@ package com.zhijia.crowd.test;
 import com.zhijia.crowd.entity.Admin;
 import com.zhijia.crowd.entity.Role;
 import com.zhijia.crowd.mapper.AdminMapper;
+import com.zhijia.crowd.mapper.AuthMapper;
 import com.zhijia.crowd.mapper.RoleMapper;
 import com.zhijia.crowd.service.api.AdminService;
 import com.zhijia.crowd.service.api.RoleService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 /**测试mybatis数据源
  * @author zhijia
@@ -23,6 +26,9 @@ import java.sql.SQLException;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring-persist-mybatis.xml","classpath:spring-persist-tx.xml"})
 public class CrowdTest {
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
     private DataSource dataSource;
@@ -35,6 +41,8 @@ public class CrowdTest {
 
     @Autowired
     private RoleMapper roleMapper;
+    @Autowired
+    private AuthMapper authMapper;
 
     @Test
     public void testInsertAdmin(){
@@ -68,4 +76,20 @@ public class CrowdTest {
             roleMapper.insert(new Role(null,"name"+i));
         }
     }
+
+
+    @Test
+    public void password(){
+        System.out.println(passwordEncoder.encode("12312"));
+    }
+
+    @Test
+    public void testAuth(){
+        List<String> strings = authMapper.selectAssignedAuthNameByAdminId(206);
+        for (String string : strings) {
+            System.out.println(string);
+        }
+
+    }
+
 }

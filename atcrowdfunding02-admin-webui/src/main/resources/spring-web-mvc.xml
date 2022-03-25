@@ -8,7 +8,7 @@
 
     <!--包扫描扫描handler-->
     <context:component-scan base-package="com.zhijia.crowd.mvc">
-        <context:exclude-filter type="assignable" expression="com.zhijia.crowd.mvc.config.WebAppSecurityConfig"/>
+        <!--<context:exclude-filter type="assignable" expression="com.zhijia.crowd.mvc.config.WebAppSecurityConfig"/>-->
     </context:component-scan>
 
     <!--配置springmvc注解驱动-->
@@ -38,20 +38,21 @@
     <mvc:view-controller path="/admin/to/main/page.html" view-name="admin-main"/>
     <!--新增页面-->
     <mvc:view-controller path="/admin/to/add/page.html" view-name="admin-add"/>
+    <!--角色页-->
     <mvc:view-controller path="/role/to/page.html" view-name="role-page"/>
     <!--菜单维护-->
     <mvc:view-controller path="/menu/to/page.html" view-name="menu-page"/>
 
-    <!--注册拦截器-->
-    <mvc:interceptors>
-        <mvc:interceptor>
-            <!--拦截资源 /**对应多层路径-->
-            <mvc:mapping path="/**"/>
-            <!--不拦截资源-->
-            <mvc:exclude-mapping path="/admin/to/login/page.html"/>
-            <mvc:exclude-mapping path="/admin/do/login.html"/>
-            <mvc:exclude-mapping path="/admin/do/logout.html"/>
-            <bean class="com.zhijia.crowd.mvc.interceptor.LoginInterceptor"/>
-        </mvc:interceptor>
-    </mvc:interceptors>
+    <!--注册拦截器——————使用springSecurity后此拦截器就不需要了-->
+    <!--<mvc:interceptors>-->
+        <!--<mvc:interceptor>-->
+            <!--&lt;!&ndash;拦截资源 /**对应多层路径&ndash;&gt;-->
+            <!--<mvc:mapping path="/**"/>-->
+            <!--&lt;!&ndash;不拦截资源&ndash;&gt;-->
+            <!--<mvc:exclude-mapping path="/admin/to/login/page.html"/>-->
+            <!--<mvc:exclude-mapping path="/admin/do/login.html"/>-->
+            <!--<mvc:exclude-mapping path="/admin/do/logout.html"/>-->
+            <!--<bean class="com.zhijia.crowd.mvc.interceptor.LoginInterceptor"/>-->
+        <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
 </beans>

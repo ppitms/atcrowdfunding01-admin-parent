@@ -37,9 +37,9 @@ public class CrowdExceptionResolver {
     }
 
     //登录异常
-    @ExceptionHandler(value = LoginFailedException.class)
-    public ModelAndView resolveArithmeticException(LoginFailedException exception, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String viewName = "admin-login";
+    @ExceptionHandler(value = Exception.class)
+    public ModelAndView resolveArithmeticException(Exception exception, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String viewName = "system-error";
         return commonResoolve(viewName,exception,request,response);
     }
     //数学运算异常

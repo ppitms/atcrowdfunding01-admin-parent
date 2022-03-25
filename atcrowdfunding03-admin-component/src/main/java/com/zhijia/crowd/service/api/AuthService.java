@@ -1,5 +1,6 @@
 package com.zhijia.crowd.service.api;
 
+import com.zhijia.crowd.entity.Admin;
 import com.zhijia.crowd.entity.Auth;
 
 import java.util.List;
@@ -15,4 +16,6 @@ public interface AuthService {
     List<Integer> getAssignedAuthIdByRoleId(Integer roleId);
 
     void saveRoleAuthRelathinship(Map<String, List<Integer>> map);
+
+    List<String> getAssignedAuthNameByAdminId(Integer adminId);
 }

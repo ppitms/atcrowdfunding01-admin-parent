@@ -6,6 +6,7 @@ import com.zhijia.crowd.entity.Admin;
 import com.zhijia.crowd.service.api.AdminService;
 import com.zhijia.crowd.util.CrowdUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -47,6 +48,7 @@ public class AdminHandler {
     }
 
     //新增
+    @PreAuthorize("hasAuthority('role:get')")
     @RequestMapping("/admin/save.html")
     public String save(Admin admin){
 
@@ -64,6 +66,7 @@ public class AdminHandler {
         adminService.remove(adminId);
         return "redirect:/admin/get/page.html?pageNum="+pageNum+"&keyword="+keyword;
     }
+
 
     //去数据列表
     @RequestMapping("/admin/get/page.html")
