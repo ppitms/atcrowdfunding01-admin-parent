@@ -1,8 +1,7 @@
 package com.zhijia.crowd.mvc.handler;
 
-import com.mysql.jdbc.log.LogFactory;
 import com.zhijia.crowd.entity.Admin;
-import com.zhijia.crowd.entity.ResultEntity;
+import com.zhijia.crowd.util.ResultEntity;
 import com.zhijia.crowd.entity.Student;
 import com.zhijia.crowd.service.api.AdminService;
 import com.zhijia.crowd.util.CrowdUtil;

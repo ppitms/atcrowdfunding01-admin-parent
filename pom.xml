@@ -11,7 +11,6 @@
         <module>atcrowdfunding02-admin-webui</module>
         <module>atcrowdfunding03-admin-component</module>
         <module>atcrowdfunding04-admin-entity</module>
-        <module>atcrowdfunding06-commom-reverse</module>
     </modules>
     <packaging>pom</packaging>
 

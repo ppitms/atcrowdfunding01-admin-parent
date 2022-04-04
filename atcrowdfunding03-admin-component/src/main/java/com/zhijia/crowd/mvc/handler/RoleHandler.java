@@ -1,11 +1,10 @@
 package com.zhijia.crowd.mvc.handler;
 
 import com.github.pagehelper.PageInfo;
-import com.zhijia.crowd.entity.ResultEntity;
+import com.zhijia.crowd.util.ResultEntity;
 import com.zhijia.crowd.entity.Role;
 import com.zhijia.crowd.service.api.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

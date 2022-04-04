@@ -2,10 +2,9 @@ package com.zhijia.crowd.mvc.config;
 
 import com.google.gson.Gson;
 import com.zhijia.crowd.constart.CrowdConstant;
-import com.zhijia.crowd.entity.ResultEntity;
+import com.zhijia.crowd.util.ResultEntity;
 import com.zhijia.crowd.exception.LoginAcctAlreadyInUseException;
 import com.zhijia.crowd.exception.LoginAcctAlreadyInUseForUpdateException;
-import com.zhijia.crowd.exception.LoginFailedException;
 import com.zhijia.crowd.util.CrowdUtil;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -1,4 +1,4 @@
-package com.zhijia.crowd.entity;
+package com.zhijia.crowd.util;
 
 /**统一整个项目中Ajax请求返回的结果
  * @author zhijia

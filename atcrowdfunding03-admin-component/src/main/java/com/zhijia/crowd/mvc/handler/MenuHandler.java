@@ -1,13 +1,11 @@
 package com.zhijia.crowd.mvc.handler;
 
 import com.zhijia.crowd.entity.Menu;
-import com.zhijia.crowd.entity.ResultEntity;
+import com.zhijia.crowd.util.ResultEntity;
 import com.zhijia.crowd.service.api.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
