@@ -95,10 +95,7 @@ public class CrowdUtil {
 
     public static void main(String[] args) throws FileNotFoundException {
         FileInputStream inputStream = new FileInputStream("atcrowdfunding05-common-util/3.jpg");
-        ResultEntity<String> resultEntity = uploadFileToOss("http://oss-cn-shenzhen.aliyuncs.com",
-                "LTAI5tGr5a9V16dbYkBfS6wn",
-                "2A8itxxSoRH37tFXMNRm5w69wzXIDz", inputStream, "zhijia1998",
-                "http://zhijia1998.oss-cn-shenzhen.aliyuncs.com", "3.jpg");
+        ResultEntity<String> resultEntity = uploadFileToOss(.,.,.,.);
         System.out.println(resultEntity);
     }
 
